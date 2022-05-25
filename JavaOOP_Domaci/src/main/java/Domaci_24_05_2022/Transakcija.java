@@ -55,17 +55,19 @@ public class Transakcija {
     public void setPrimalac(Racun primalac) {
         this.primalac = primalac;
     }
-    private double provizija(int visinaTransakcije){
+    private double provizija(double visinaTransakcije){
         if (visinaTransakcije < 4500){
-            return 45;
+            return 45/100;
         }else {
             return visinaTransakcije / 100;
         }
     }
-    public void izvrsiTransakciju(int vrednost){
-        if (this.posljalac.promeniStanjeNaRacunu(vrednost * -1)){
-            this.primalac.promeniStanjeNaRacunu(vrednost);
+    public void izvrsiTransakciju(double vrednostTransakcije){
+        if (this.posljalac.getStanje() > 0){
+            this.posljalac.promeniStanjeNaRacunu((int) (vrednostTransakcije * (-1) - this.provizija(vrednostTransakcije)));
+            this.primalac.promeniStanjeNaRacunu((int) vrednostTransakcije);
+        }else {
+            System.out.println("Nemate dovoljno sredstava na racunu");
         }
     }
-
 }
