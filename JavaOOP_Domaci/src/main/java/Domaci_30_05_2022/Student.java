@@ -64,14 +64,17 @@ public class Student {
         nizIspita.add(ispit);
     }
     public double racunajProsek(){
+
+        ArrayList<Integer> nizPolozenih = new ArrayList<>();
         double zbirOcena = 0;
         for (int i = 0; i <nizIspita.size() ; i++) {
             Ispit ispit = nizIspita.get(i);
             if (ispit.polozenIspit()){
                 zbirOcena += ispit.getOcena();
+                nizPolozenih.add(i);
             }
         }
-        return zbirOcena / nizIspita.size();
+        return zbirOcena / nizPolozenih.size();
     }
     public void stampaj(){
         System.out.println(this.brojIndeksa + " - " + this.imeIPrezimeStudenta + " - " + this.tipStudija);
