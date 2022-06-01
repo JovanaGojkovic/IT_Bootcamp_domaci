@@ -11,10 +11,6 @@ public class Karton {
         return tipKartona;
     }
 
-    public void setTipKartona(String tipKartona) {
-        this.tipKartona = tipKartona;
-    }
-
     public Karton(String tipKartona) {
         this.tipKartona = tipKartona;
     }
