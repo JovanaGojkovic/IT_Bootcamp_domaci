@@ -12,17 +12,14 @@ public class MainKlasa {
         Sektor prviSprat = new Sektor("Prvi", 150000);
         Sektor drugiSprat = new Sektor("Drugi", 200000);
 
-        ArrayList<Radnik> nizRadnika = new ArrayList<>();
-        mag1.zaposliUsektor(prviSprat);
-        nizRadnika.add(mag1);
 
+        mag1.zaposliUsektor(prviSprat);
         men1.zaposliUsektor(drugiSprat);
         men1.zaposliUsektor(prviSprat);
-        nizRadnika.add(men1);
 
-        for (int i = 0; i < nizRadnika.size(); i++) {
-            Radnik radnik = nizRadnika.get(i);
-            System.out.println("Plata " + radnik.getImeIprezime() + " je: " + radnik.plata());
-        }
+        System.out.println("Radnik: " + mag1.getImeIprezime() + " Ima platu: " + mag1.plata());
+        System.out.println("Radnik: " + men1.getImeIprezime() + " Ima platu: " + men1.plata());
+
+
     }
 }
