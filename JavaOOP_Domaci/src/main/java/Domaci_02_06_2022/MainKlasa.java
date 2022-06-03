@@ -7,19 +7,23 @@ public class MainKlasa {
 //        U glavnom programu kreirati jednog magacionera i jednog menadzera,
 //                postaviti sektore u kojima rade i ispisati platu za svakog
 
-        Magacioner mag1 = new Magacioner("Pera Peric");
-        Menadzer men1 = new Menadzer("Mika Mikic");
+//        Magacioner mag1 = new Magacioner("Pera Peric");
+//        Menadzer men1 = new Menadzer("Mika Mikic");
         Sektor prviSprat = new Sektor("Prvi", 150000);
         Sektor drugiSprat = new Sektor("Drugi", 200000);
 
+        ArrayList<Radnik> nizRadnika = new ArrayList<>();
+        Radnik radnik1 = new Magacioner("Pera Peric");
+        Radnik radnik2 = new Menadzer("Laza Lazic");
 
-        mag1.zaposliUsektor(prviSprat);
-        men1.zaposliUsektor(drugiSprat);
-        men1.zaposliUsektor(prviSprat);
+        radnik1.zaposliUsektor(drugiSprat);
+        radnik2.zaposliUsektor(prviSprat);
+        nizRadnika.add(radnik1);
+        nizRadnika.add(radnik2);
 
-        System.out.println("Radnik: " + mag1.getImeIprezime() + " Ima platu: " + mag1.plata());
-        System.out.println("Radnik: " + men1.getImeIprezime() + " Ima platu: " + men1.plata());
-
-
+        for (int i = 0; i < nizRadnika.size(); i++) {
+            Radnik radnik = nizRadnika.get(i);
+            System.out.println("Plata " + radnik.getImeIprezime() + " je: " + radnik.plata());
+        }
     }
 }
